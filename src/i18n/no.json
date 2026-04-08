@@ -1,7 +1,11 @@
 {
     "commonConstants": {
         "noDataFound": "Ingen data funnet",
-        "save": "Lagre"
+        "save": "Lagre",
+        "cancel": "Avbryt",
+        "update": "Oppdater",
+        "delete": "Slett",
+        "invite": "Inviter"
     },
     "staticValidation": {
         "required": "Dette feltet er obligatorisk.",
@@ -20,6 +24,29 @@
         "passwordComplexity": "Nytt passord skal inneholde store bokstaver, små bokstaver, ett tall og ett spesialtegn.",
         "invalidPincode": "Området ble ikke funnet."
     },
+    "userManagement": {
+        "title": "brukere",
+        "description": "Her kan du administrere brukere og invitere nye medlemmer til organisasjonen din.",
+        "inviteNewUser": "Inviter ny bruker",
+        "fullName": "Fullt navn",
+        "emailAddress": "E-postadresse",
+        "phoneNumber": "Telefonnummer",
+        "role": "Rolle",
+        "lastLogin": "Siste pålogging",
+        "viewDetails": "Vis detaljer",
+        "activeUser": "AKTIV BRUKER",
+        "addAnotherUser": "Legg til en annen bruker i organisasjonen",
+        "editUser": "Rediger bruker",
+        "editUserDescription": "Oppdater brukerens informasjon og rolle.",
+        "inviteUserDescription": "Inviter en ny bruker til organisasjonen din. Den inviterte brukeren vil motta påloggingsinformasjon på e-post.",
+        "deleteUser": "Slett bruker",
+        "deleteDescription": "Er du sikker på at du vil slette denne brukeren fra organisasjonen din?",
+        "roles": {
+            "admin": "Administrator",
+            "user": "Bruker",
+            "manager": "Manager"
+        }
+    },
     "pageTitles": {
         "flowlyt": "Flowlyt"
     },
@@ -37,7 +64,9 @@
         "helpCenter": "Hjelpesenter",
         "chatWithSupport": "Chat med support",
         "subNavigation": "Under-navigasjon",
-        "notifications": "Varsler"
+        "notifications": "Varsler",
+        "unread": "Ulest",
+        "history": "Historikk"
     },
     "category": {
         "addCategory": "Legg til kategori",

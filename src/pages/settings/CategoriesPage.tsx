@@ -7,29 +7,9 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { InputPlaceHolder } from '../../components/Constants/Validation';
-import {
-    closestCenter,
-    DndContext,
-    DragOverlay,
-    KeyboardSensor,
-    PointerSensor,
-    useSensor,
-    useSensors,
-} from '@dnd-kit/core';
-import {
-    arrayMove,
-    SortableContext,
-    sortableKeyboardCoordinates,
-    useSortable,
-    rectSortingStrategy,
-} from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-
-type Category = {
-    id: string;
-    name: string;
-    description: string;
-};
+import type { Category } from '../../interfaces/category';
+import BaseSortableGrid from '../../components/Base/BaseSortableGrid';
+import BaseSortableItem from '../../components/Base/BaseSortableItem';
 
 // This below logic is temporary handled from frontend will remove once backend is ready.
 const STORAGE_KEY = 'flowlyt.settings.categories.v1';
@@ -72,65 +52,54 @@ function CategoryCard({
     category: Category;
     active?: boolean;
 }>) {
-    const {
-        attributes,
-        listeners,
-        setNodeRef,
-        transform,
-        transition,
-        isDragging,
-        setActivatorNodeRef,
-    } = useSortable({ id: category.id });
-
-    const style: React.CSSProperties = {
-        transform: CSS.Transform.toString(transform),
-        transition: transition ?? 'transform 200ms ease',
-    };
-
     return (
-        <div
-            ref={setNodeRef}
-            style={style}
-            className={[
-                'group relative rounded-[8px] bg-white border border-softGray/60',
-                'h-[44px] px-3 flex items-center gap-2',
-                'select-none',
-                isDragging ? 'opacity-40' : 'opacity-100',
-                active ? 'shadow-lg ring-1 ring-softGray' : '',
-            ].join(' ')}
-        >
-            <BaseButton
-                type="button"
-                ref={setActivatorNodeRef}
-                className={[
-                    'inline-flex items-center justify-center rounded-md',
-                    'text-slateGray/60 hover:text-slateGray',
-                    'w-8 h-8 shrink-0 cursor-grab active:cursor-grabbing',
-                    'transition',
-                    'min-w-0 h-auto bg-transparent border-none shadow-none p-0',
-                ].join(' ')}
-                {...attributes}
-                {...listeners}
-            >
-                <IconGripVertical className="w-5 h-5" />
-            </BaseButton>
+        <BaseSortableItem id={category.id}>
+            {({ setNodeRef, style, isDragging, setActivatorNodeRef, attributes, listeners }) => (
+                <div
+                    ref={setNodeRef}
+                    style={style}
+                    className={[
+                        'group relative rounded-[8px] bg-white border border-softGray/60',
+                        'h-[44px] px-3 flex items-center gap-2',
+                        'select-none',
+                        isDragging ? 'opacity-40' : 'opacity-100',
+                        active ? 'shadow-lg ring-1 ring-softGray' : '',
+                    ].join(' ')}
+                >
+                    <BaseButton
+                        type="button"
+                        ref={setActivatorNodeRef}
+                        className={[
+                            'inline-flex items-center justify-center rounded-md',
+                            'text-slateGray/60 hover:text-slateGray',
+                            'w-8 h-8 shrink-0 cursor-grab active:cursor-grabbing',
+                            'transition',
+                            'min-w-0 h-auto bg-transparent border-none shadow-none p-0',
+                        ].join(' ')}
+                        {...attributes}
+                        {...listeners}
+                    >
+                        <IconGripVertical className="w-5 h-5" />
+                    </BaseButton>
 
-            <div className="text-slateGray text-textSm font-medium truncate flex-1">
-                {category?.name}
-            </div>
+                    <div className="text-slateGray text-textSm font-medium truncate flex-1">
+                        {category?.name}
+                    </div>
 
-            <BaseButton
-                type="button"
-                className={[
-                    'inline-flex items-center justify-center rounded-md cursor-pointer',
-                    'text-slateGray/60 hover:text-slateGray hover:bg-white/60',
-                    'w-8 h-8 shrink-0 transition',
-                    'min-w-0 h-auto bg-transparent border-none shadow-none p-0 cursor-default',
-                ].join(' ')}
-            >
-                <IconX className="w-5 h-5" />
-            </BaseButton>
-        </div>
+                    <BaseButton
+                        type="button"
+                        className={[
+                            'inline-flex items-center justify-center rounded-md cursor-pointer',
+                            'text-slateGray/60 hover:text-slateGray hover:bg-white/60',
+                            'w-8 h-8 shrink-0 transition',
+                            'min-w-0 h-auto bg-transparent border-none shadow-none p-0 cursor-default',
+                        ].join(' ')}
+                    >
+                        <IconX className="w-5 h-5" />
+                    </BaseButton>
+                </div>
+            )}
+        </BaseSortableItem>
     );
 }
 
@@ -170,7 +139,6 @@ export default function CategoriesPage() {
 
     const { categories, setCategories } = usePersistedCategories(defaultCategories);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [activeId, setActiveId] = useState<string | null>(null);
     const nameInputRef = useRef<HTMLInputElement | null>(null);
 
     const validationSchema = Yup.object().shape({
@@ -196,11 +164,6 @@ export default function CategoriesPage() {
         },
     });
 
-    const sensors = useSensors(
-        useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
-        useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
-    );
-
     const openModal = () => {
         setIsModalOpen(true);
         formik.resetForm();
@@ -208,8 +171,6 @@ export default function CategoriesPage() {
 
     const canSave =
         formik.values.name.trim().length > 0 && formik.values.description.trim().length > 0;
-
-    const activeCategory = activeId ? categories.find((c) => c.id === activeId) : undefined;
 
     return (
         <div className="max-w-[980px]">
@@ -222,58 +183,31 @@ export default function CategoriesPage() {
                 </div>
             </div>
 
-            <DndContext
-                sensors={sensors}
-                collisionDetection={closestCenter}
-                onDragStart={(e) => setActiveId(String(e.active.id))}
-                onDragCancel={() => setActiveId(null)}
-                onDragEnd={(e) => {
-                    const { active, over } = e;
-                    setActiveId(null);
-                    if (!over) return;
-                    if (active.id === over.id) return;
-                    setCategories((items) => {
-                        const oldIndex = items.findIndex((i) => i.id === active.id);
-                        const newIndex = items.findIndex((i) => i.id === over.id);
-                        if (oldIndex === -1 || newIndex === -1) return items;
-                        return arrayMove(items, oldIndex, newIndex);
-                    });
-                }}
-            >
-                <SortableContext
-                    items={categories?.map((c) => c?.id)}
-                    strategy={rectSortingStrategy}
-                >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {categories?.map((cat) => (
-                            <CategoryCard
-                                key={cat?.id}
-                                category={cat}
-                                active={activeId === cat?.id}
-                            />
-                        ))}
-                        <AddCategoryCard onClick={openModal} />
-                    </div>
-                </SortableContext>
-
-                <DragOverlay>
-                    {activeCategory ? (
-                        <div className="opacity-100">
-                            <div className="rounded-[8px] bg-white border border-softGray/60 h-[44px] px-3 flex items-center gap-2 shadow-xl">
-                                <span className="inline-flex items-center justify-center w-8 h-8 text-slateGray/60">
-                                    <IconGripVertical className="w-5 h-5" />
-                                </span>
-                                <div className="text-slateGray text-textSm font-medium truncate flex-1">
-                                    {activeCategory?.name}
-                                </div>
-                                <span className="inline-flex items-center justify-center w-8 h-8 text-slateGray/60">
-                                    <IconX className="w-5 h-5" />
-                                </span>
+            <BaseSortableGrid<Category>
+                items={categories}
+                onItemsChange={setCategories}
+                containerClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                renderItem={(cat, { activeId }) => (
+                    <CategoryCard key={cat.id} category={cat} active={activeId === cat.id} />
+                )}
+                renderOverlay={(activeCategory) => (
+                    <div className="opacity-100">
+                        <div className="rounded-[8px] bg-white border border-softGray/60 h-[44px] px-3 flex items-center gap-2 shadow-xl">
+                            <span className="inline-flex items-center justify-center w-8 h-8 text-slateGray/60">
+                                <IconGripVertical className="w-5 h-5" />
+                            </span>
+                            <div className="text-slateGray text-textSm font-medium truncate flex-1">
+                                {activeCategory?.name}
                             </div>
+                            <span className="inline-flex items-center justify-center w-8 h-8 text-slateGray/60">
+                                <IconX className="w-5 h-5" />
+                            </span>
                         </div>
-                    ) : null}
-                </DragOverlay>
-            </DndContext>
+                    </div>
+                )}
+            >
+                <AddCategoryCard onClick={openModal} />
+            </BaseSortableGrid>
 
             <BaseModal
                 visible={isModalOpen}

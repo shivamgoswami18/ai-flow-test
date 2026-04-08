@@ -55,6 +55,7 @@ const config: Config = {
             colors: {
                 black: '#000000',
                 white: '#FFFFFF',
+                greyFont: '#464555',
                 lightGray: '#fafaf9',
                 softGray: '#E2E8F0',
                 slateGray: '#475569',

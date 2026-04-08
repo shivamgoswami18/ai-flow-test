@@ -28,3 +28,12 @@ body,
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
+.base-tabs {
+    display: flex;
+    width: 100%;
+}
+.base-tabs__tab {
+    flex: 1;
+    min-width: 0;
+}
