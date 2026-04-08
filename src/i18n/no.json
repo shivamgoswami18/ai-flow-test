@@ -1,0 +1,51 @@
+{
+    "commonConstants": {
+        "noDataFound": "Ingen data funnet",
+        "save": "Lagre"
+    },
+    "staticValidation": {
+        "required": "Dette feltet er obligatorisk.",
+        "format": "Dette feltet er ugyldig.",
+        "email": "Dette feltet er ugyldig.",
+        "imageSize": "Bildestørrelsen må være mindre enn 1 MB",
+        "fileFormat": "Dette filformatet støttes ikke.",
+        "numeric": "Dette feltet må inneholde kun tall",
+        "maxFileSize": "Filstørrelsen må være mindre enn 1 MB",
+        "placeholder": "{{field}}",
+        "selectPlaceHolder": "{{field}}",
+        "passwordLength": "Nytt passord må være minst 8 tegn.",
+        "passwordMismatch": "Passordene stemmer ikke overens.",
+        "passwordsMatch": "Nytt passord og bekreft passord må være like.",
+        "passwordsShouldNotMatch": "Nytt passord og nåværende passord skal ikke være det samme.",
+        "passwordComplexity": "Nytt passord skal inneholde store bokstaver, små bokstaver, ett tall og ett spesialtegn.",
+        "invalidPincode": "Området ble ikke funnet."
+    },
+    "pageTitles": {
+        "flowlyt": "Flowlyt"
+    },
+    "routes": {
+        "SignIn": "/logge-pa",
+        "SignUp": "/registrer-deg",
+        "ForgotPassword": "/glemt-passord",
+        "dashboard": "/dashbord",
+        "settings": "/innstillinger",
+        "settingsUsers": "/innstillinger/brukere",
+        "settingsCategories": "/innstillinger/kategorier"
+    },
+    "sidebar": {
+        "questionsVisitOur": "Spørsmål? Besøk vårt",
+        "helpCenter": "Hjelpesenter",
+        "chatWithSupport": "Chat med support",
+        "subNavigation": "Under-navigasjon",
+        "notifications": "Varsler"
+    },
+    "category": {
+        "addCategory": "Legg til kategori",
+        "customerCategories": "Kundekategorier",
+        "customerCategoryDescription": "Her kan du definere dine egne kundekategorier. Disse brukes til å gruppere og klassifisere kundene dine på tvers av arbeidsområdet for bedre organisering og målrettet rapportering.",
+        "name": "Navn",
+        "description": "Beskrivelse",
+        "addNewCategory": "Legg til ny kategori",
+        "addNewCategoryDescription": "Opprett en kategori for å gruppere og klassifisere kunder for bedre rapportering."
+    }
+}

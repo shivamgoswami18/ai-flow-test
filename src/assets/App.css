@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap');
+@import 'tailwindcss';
+@config "../../tailwind.config.ts";
+@import '@heroui/styles';
+@source "../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
+:root {
+    --font-manrope: 'Manrope', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+}
+
+@theme {
+    --font-family-sans: 'Manrope', 'Inter', sans-serif;
+    --font-family-manrope: 'Manrope', sans-serif;
+    --font-family-inter: 'Inter', sans-serif;
+}
+
+html,
+body,
+* {
+    font-family: 'Manrope', 'Inter', sans-serif;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}

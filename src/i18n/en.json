@@ -1,0 +1,51 @@
+{
+    "commonConstants": {
+        "noDataFound": "No data found",
+        "save": "Save"
+    },
+    "staticValidation": {
+        "required": "This field is required.",
+        "format": "This field is invalid.",
+        "email": "This field is invalid.",
+        "imageSize": "Image size should be less than 1MB",
+        "fileFormat": "This file format is not supported.",
+        "numeric": "This field must contain only numbers",
+        "maxFileSize": "File size must be less than 1MB",
+        "placeholder": "{{field}}",
+        "selectPlaceHolder": "{{field}}",
+        "passwordLength": "New password must be at least 8 characters.",
+        "passwordMismatch": "Passwords do not match.",
+        "passwordsMatch": "New password and confirm password should be same.",
+        "passwordsShouldNotMatch": "New password and current password should not be the same.",
+        "passwordComplexity": "New password should include uppercase, lowercase, one number and one special character.",
+        "invalidPincode": "Area is not found."
+    },
+    "pageTitles": {
+        "flowlyt": "Flowlyt"
+    },
+    "routes": {
+        "SignIn": "/signin",
+        "SignUp": "/signup",
+        "ForgotPassword": "/forgot-password",
+        "dashboard": "/dashboard",
+        "settings": "/settings",
+        "settingsUsers": "/settings/users",
+        "settingsCategories": "/settings/categories"
+    },
+    "sidebar": {
+        "questionsVisitOur": "Questions? Visit our",
+        "helpCenter": "Help Center",
+        "chatWithSupport": "Chat with Support",
+        "subNavigation": "Sub-navigation",
+        "notifications": "Notifications"
+    },
+    "category": {
+        "addCategory": "Add category",
+        "customerCategories": "Customer categories",
+        "customerCategoryDescription": "Here you can define your own customer categories. These are used to group and classify your customers across the workspace for better organization and targeted reporting.",
+        "name": "name",
+        "description": "description",
+        "addNewCategory": "Add new category",
+        "addNewCategoryDescription": "Create a category to group and classify customers for better reporting."
+    }
+}
