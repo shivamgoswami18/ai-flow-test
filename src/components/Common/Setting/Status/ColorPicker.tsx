@@ -4,15 +4,21 @@ import BaseButton from '../../../Base/BaseButton';
 
 const STATUS_COLORS = [
     '#ef4444', // red
-    '#f97316', // orange
     '#eab308', // yellow
     '#22c55e', // green
     '#3b82f6', // blue
-    '#6366f1', // indigo
     '#a855f7', // purple
     '#ec4899', // pink
     '#14b8a6', // teal
-    '#64748b', // slate
+    '#f43f5e', // rose
+    '#fb923c', // light orange
+    '#facc15', // light yellow
+    '#84cc16', // lime
+    '#0ea5e9', // sky
+    '#8b5cf6', // violet
+    '#d946ef', // fuchsia
+    '#10b981', // emerald
+    '#6b7280', // gray
 ];
 
 interface ColorPickerProps {
@@ -53,13 +59,13 @@ export default function ColorPicker({ value, onChange }: Readonly<ColorPickerPro
                     'absolute bottom-full left-0 mb-2 z-50',
                     'bg-white border border-slate-200 rounded-lg shadow-lg p-3',
                     'origin-bottom-left transition-all duration-150 ease-out',
-                    'w-[60px]',
+                    'w-[140px]',
                     open
                         ? 'opacity-100 translate-y-0 scale-100'
                         : 'opacity-0 pointer-events-none translate-y-1 scale-95',
                 ].join(' ')}
             >
-                <div className="grid grid-cols-1 gap-2 place-items-center">
+                <div className="grid grid-cols-4 gap-2 place-items-center">
                     {STATUS_COLORS?.map((color) => (
                         <button
                             key={color}
@@ -68,7 +74,7 @@ export default function ColorPicker({ value, onChange }: Readonly<ColorPickerPro
                                 onChange(color);
                                 setOpen(false);
                             }}
-                            className="w-4 h-4 cursor-pointer rounded-full border-2 transition-transform duration-150 ease-out hover:scale-110"
+                            className="w-4 h-4 cursor-pointer rounded-full border-1 transition-transform duration-150 ease-out hover:scale-110"
                             style={{
                                 backgroundColor: color,
                                 borderColor: value === color ? '#1e293b' : 'transparent',

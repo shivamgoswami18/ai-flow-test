@@ -281,7 +281,7 @@ export default function StatusesPage() {
     };
 
     return (
-        <div className="max-w-[780px]">
+        <div className="w-full">
             <div className="mb-6">
                 <div className="text-[28px] leading-[34px] font-premiumBold text-slateGray">
                     {t('status.customerStatuses')}

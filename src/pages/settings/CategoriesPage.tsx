@@ -173,7 +173,7 @@ export default function CategoriesPage() {
         formik.values.name.trim().length > 0 && formik.values.description.trim().length > 0;
 
     return (
-        <div className="max-w-[980px]">
+        <div className="w-full">
             <div className="mb-6">
                 <div className="text-[28px] leading-[34px] font-premiumBold text-slateGray">
                     {t('category.customerCategories')}
