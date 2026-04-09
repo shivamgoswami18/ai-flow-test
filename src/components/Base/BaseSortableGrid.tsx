@@ -49,18 +49,16 @@ export default function BaseSortableGrid<TItem extends BaseSortableItem>({
     const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
 
     const sensors = useSensors(
-        useSensor(PointerSensor, { 
-            activationConstraint: { 
+        useSensor(PointerSensor, {
+            activationConstraint: {
                 distance: activationDistance,
-                delay: 250,
-                tolerance: 5
-            } 
+            },
         }),
         useSensor(TouchSensor, {
             activationConstraint: {
                 delay: 250,
-                tolerance: 5
-            }
+                tolerance: 5,
+            },
         }),
         useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
     );

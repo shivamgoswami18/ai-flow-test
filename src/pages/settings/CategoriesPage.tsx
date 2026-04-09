@@ -61,7 +61,7 @@ function CategoryCard({
                     className={[
                         'group relative rounded-[8px] bg-white border border-softGray/60',
                         'h-[44px] px-3 flex items-center gap-2',
-                        'select-none',
+                        'select-none touch-pan-y',
                         isDragging ? 'opacity-40' : 'opacity-100',
                         active ? 'shadow-lg ring-1 ring-softGray' : '',
                     ].join(' ')}
@@ -74,7 +74,7 @@ function CategoryCard({
                             'text-slateGray/60 hover:text-slateGray',
                             'w-8 h-8 shrink-0 cursor-grab active:cursor-grabbing',
                             'transition',
-                            'min-w-0 h-auto bg-transparent border-none shadow-none p-0',
+                            'min-w-0 h-auto bg-transparent border-none shadow-none p-0 touch-none',
                         ].join(' ')}
                         {...attributes}
                         {...listeners}
