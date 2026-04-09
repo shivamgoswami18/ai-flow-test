@@ -59,6 +59,7 @@ const config: Config = {
                 lightGray: '#fafaf9',
                 softGray: '#E2E8F0',
                 slateGray: '#475569',
+                successGreen: '#22C55E',
                 primary: {
                     DEFAULT: '#4F46E5',
                     50: '#F2EFFF',

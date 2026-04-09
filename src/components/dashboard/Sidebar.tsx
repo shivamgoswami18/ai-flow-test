@@ -26,6 +26,7 @@ const navItems: NavItem[] = [
 const settingsSubNav = [
     { label: 'Users', to: localizedPath('settingsUsers') },
     { label: 'Categories', to: localizedPath('settingsCategories') },
+    { label: 'Statuses', to: localizedPath('settingsStatuses') },
 ] as const;
 
 type SidebarProps = {

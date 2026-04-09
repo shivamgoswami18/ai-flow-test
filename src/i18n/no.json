@@ -57,7 +57,8 @@
         "dashboard": "/dashbord",
         "settings": "/innstillinger",
         "settingsUsers": "/innstillinger/brukere",
-        "settingsCategories": "/innstillinger/kategorier"
+        "settingsCategories": "/innstillinger/kategorier",
+        "settingsStatuses": "/innstillinger/statuser"
     },
     "sidebar": {
         "questionsVisitOur": "Spørsmål? Besøk vårt",
@@ -76,5 +77,15 @@
         "description": "Beskrivelse",
         "addNewCategory": "Legg til ny kategori",
         "addNewCategoryDescription": "Opprett en kategori for å gruppere og klassifisere kunder for bedre rapportering."
+    },
+    "status": {
+        "customerStatuses": "Kundestatuser",
+        "customerStatusDescription": "Her kan du opprette dine egne kundestatuser. Kundestatusene er tilgjengelige på kundekortet og i filtre på kundelisten din.",
+        "name": "Statusnavn",
+        "description": "Statusbeskrivelse",
+        "color": "Farge",
+        "addNewStatus": "Legg til ny status",
+        "deleteStatus": "Slett status",
+        "deleteConfirmMessage": "Er du sikker på at du vil slette denne statusen?"
     }
 }

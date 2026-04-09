@@ -7,6 +7,7 @@ import App from '../App';
 import { Navigate } from 'react-router-dom';
 import UsersPage from '../pages/settings/UsersPage';
 import CategoriesPage from '../pages/settings/CategoriesPage';
+import StatusesPage from '../pages/settings/StatusesPage';
 
 export interface RouteConfig {
     path?: string;
@@ -52,6 +53,10 @@ export const publicRoutes: RouteConfig[] = [
             {
                 path: localizedPath('settingsCategories'),
                 element: <CategoriesPage />,
+            },
+            {
+                path: localizedPath('settingsStatuses'),
+                element: <StatusesPage />,
             },
         ],
     },

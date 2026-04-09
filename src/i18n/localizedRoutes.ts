@@ -8,6 +8,7 @@ export const ROUTE_KEYS = [
     'settings',
     'settingsUsers',
     'settingsCategories',
+    'settingsStatuses',
 ] as const;
 
 export type RouteKey = (typeof ROUTE_KEYS)[number];
