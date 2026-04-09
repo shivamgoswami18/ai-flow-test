@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 import { InputPlaceHolder } from '../../components/Constants/Validation';
-import type { Status, StatusCardProps, InlineFormProps } from '../../interfaces/status';
+import type { Status, StatusData, StatusCardProps, InlineFormProps } from '../../interfaces/status';
 import BaseSortableGrid from '../../components/Base/BaseSortableGrid';
 import BaseSortableItem from '../../components/Base/BaseSortableItem';
 import BaseModal from '../../components/Base/BaseModal';
@@ -32,6 +32,7 @@ function usePersistedStatuses(defaultValue: Status[]) {
                     s &&
                     typeof s.id === 'string' &&
                     typeof s.name === 'string' &&
+                    (typeof s.description === 'string' || s.description === undefined) &&
                     typeof s.color === 'string'
             );
         } catch {
@@ -128,14 +129,14 @@ function InlineStatusForm({ initialValues, onSave, onCancel }: Readonly<InlineFo
                     <BaseButton
                         type="button"
                         onClick={onCancel}
-                        className="inline-flex items-center justify-center px-4 py-5 bg-softGray rounded-[8px] text-slateGray hover:text-red-500 transition shadow-none p-0 min-w-0"
+                        className="inline-flex items-center justify-center px-4 py-5 bg-softGray rounded-[8px] text-slateGray hover:text-red-500 transition shadow-none min-w-0"
                     >
                         <IconTrash className="w-4 h-4" />
                     </BaseButton>
                     <BaseButton
                         type="button"
                         onClick={() => formik.handleSubmit()}
-                        className="inline-flex items-center justify-center px-4 py-5 bg-softGray rounded-[8px] text-slateGray hover:text-successGreen transition shadow-none p-0 min-w-0"
+                        className="inline-flex items-center justify-center px-4 py-5 bg-softGray rounded-[8px] text-slateGray hover:text-successGreen transition shadow-none min-w-0"
                     >
                         <IconCheck className="w-4 h-4" />
                     </BaseButton>
@@ -171,18 +172,18 @@ function StatusCard({
                         <InlineStatusForm
                             initialValues={{
                                 name: status.name,
-                                description: status.description,
+                                description: status.description || '',
                                 color: status.color,
                             }}
                             onSave={(vals) => onSaveEdit(status.id, vals)}
                             onCancel={onCancelEdit}
                         />
                     ) : (
-                        <div className="group rounded-[8px] bg-white border border-softGray/60 h-[52px] px-3 flex items-center gap-3 select-none">
+                        <div className="group rounded-[8px] bg-white border border-softGray/60 h-[52px] px-3 flex items-center gap-3 select-none touch-pan-y">
                             <BaseButton
                                 type="button"
                                 ref={setActivatorNodeRef}
-                                className="inline-flex items-center justify-center w-8 h-8 shrink-0 cursor-grab active:cursor-grabbing text-slateGray/40 hover:text-slateGray transition min-w-0 bg-transparent border-none shadow-none p-0"
+                                className="inline-flex items-center justify-center w-8 h-8 shrink-0 cursor-grab active:cursor-grabbing text-slateGray/40 hover:text-slateGray transition min-w-0 bg-transparent border-none shadow-none p-0 touch-none"
                                 {...attributes}
                                 {...listeners}
                             >
@@ -254,17 +255,14 @@ export default function StatusesPage() {
         setEditingId(id);
     };
 
-    const handleSaveEdit = (
-        id: string,
-        values: { name: string; description: string; color: string }
-    ) => {
+    const handleSaveEdit = (id: string, values: StatusData) => {
         setStatuses((prev) => prev.map((s) => (s.id === id ? { ...s, ...values } : s)));
         setEditingId(null);
     };
 
     const handleCancelEdit = () => setEditingId(null);
 
-    const handleAddNew = (values: { name: string; description: string; color: string }) => {
+    const handleAddNew = (values: StatusData) => {
         const newStatus: Status = { id: uid(), ...values };
         setStatuses((prev) => [...prev, newStatus]);
         setShowAddForm(false);
@@ -383,9 +381,6 @@ function DeleteConfirmationModal(props: Readonly<DeleteConfirmationModalProps>) 
                     <div className="text-textLg font-bold leading-[30px] tracking-[-0.02em]">
                         {t('status.deleteStatus')}
                     </div>
-                    <div className="text-textSm font-medium text-slateGray leading-[20px]">
-                        {t('status.deleteConfirmMessage')}
-                    </div>
                 </div>
             }
             footer={
@@ -406,7 +401,7 @@ function DeleteConfirmationModal(props: Readonly<DeleteConfirmationModalProps>) 
             }
             size="lg"
         >
-            <div className="flex flex-col gap-4 py-4 px-4" />
+            <div className="flex flex-col gap-4 py-4 px-4">{t('status.deleteConfirmMessage')}</div>
         </BaseModal>
     );
 }

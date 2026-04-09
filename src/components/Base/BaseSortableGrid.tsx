@@ -5,6 +5,7 @@ import {
     DragOverlay,
     KeyboardSensor,
     PointerSensor,
+    TouchSensor,
     useSensor,
     useSensors,
     type DragEndEvent,
@@ -48,7 +49,19 @@ export default function BaseSortableGrid<TItem extends BaseSortableItem>({
     const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
 
     const sensors = useSensors(
-        useSensor(PointerSensor, { activationConstraint: { distance: activationDistance } }),
+        useSensor(PointerSensor, { 
+            activationConstraint: { 
+                distance: activationDistance,
+                delay: 250,
+                tolerance: 5
+            } 
+        }),
+        useSensor(TouchSensor, {
+            activationConstraint: {
+                delay: 250,
+                tolerance: 5
+            }
+        }),
         useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
     );
 

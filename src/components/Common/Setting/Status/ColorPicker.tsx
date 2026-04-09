@@ -74,7 +74,7 @@ export default function ColorPicker({ value, onChange }: Readonly<ColorPickerPro
                                 onChange(color);
                                 setOpen(false);
                             }}
-                            className="w-4 h-4 cursor-pointer rounded-full border-1 transition-transform duration-150 ease-out hover:scale-110"
+                            className="w-4 h-4 cursor-pointer rounded-full border transition-transform duration-150 ease-out hover:scale-110"
                             style={{
                                 backgroundColor: color,
                                 borderColor: value === color ? '#1e293b' : 'transparent',
