@@ -6,8 +6,10 @@ import DashboardPage from '../pages/DashboardPage';
 import App from '../App';
 import { Navigate } from 'react-router-dom';
 import UsersPage from '../pages/settings/UsersPage';
+import RolesPage from '../pages/settings/RolesPage';
 import CategoriesPage from '../pages/settings/CategoriesPage';
 import StatusesPage from '../pages/settings/StatusesPage';
+import OrganizationOnboarding from '../pages/Authentication/Organization';
 
 export interface RouteConfig {
     path?: string;
@@ -19,7 +21,7 @@ export interface RouteConfig {
 
 const basePath = import.meta.env.BASE_URL;
 
-export const redirectPath = localizedPath('SignIn');
+export const redirectPath = localizedPath('signIn');
 
 export const publicRoutes: RouteConfig[] = [
     {
@@ -28,8 +30,12 @@ export const publicRoutes: RouteConfig[] = [
         isPublic: true,
         children: [
             {
-                path: localizedPath('SignIn'),
+                path: localizedPath('signIn'),
                 element: <div>Signin</div>,
+            },
+            {
+                path: localizedPath('organization'),
+                element: <OrganizationOnboarding />,
             },
         ],
     },
@@ -49,6 +55,10 @@ export const publicRoutes: RouteConfig[] = [
             {
                 path: localizedPath('settingsUsers'),
                 element: <UsersPage />,
+            },
+            {
+                path: localizedPath('settingsRoles'),
+                element: <RolesPage />,
             },
             {
                 path: localizedPath('settingsCategories'),

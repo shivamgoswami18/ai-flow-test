@@ -26,11 +26,11 @@ export default function DashboardLayout() {
             <main
                 className={[
                     'flex-1 min-h-screen flex flex-col transition-[margin-left] duration-300 ease-out',
-                    !isSettingsActive && (sidebarCollapsed ? 'md:ml-20' : 'md:ml-56'),
-                    isSettingsActive && (sidebarCollapsed ? 'md:ml-76' : 'md:ml-112'),
+                    !isSettingsActive && (sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-56'),
+                    isSettingsActive && (sidebarCollapsed ? 'lg:ml-76' : 'lg:ml-112'),
                 ].join(' ')}
             >
-                <div className="md:hidden sticky top-0 z-20 px-4 pt-4 bg-lightGray">
+                <div className="lg:hidden sticky top-0 z-20 px-4 pt-4 bg-lightGray">
                     <BaseButton
                         type="button"
                         onClick={() => setSidebarOpen((v) => !v)}
@@ -44,7 +44,7 @@ export default function DashboardLayout() {
                     </BaseButton>
                 </div>
 
-                <div className="flex-1 px-4 md:px-8 py-8 md:py-10 bg-lightGray">
+                <div className="flex-1 px-4 lg:px-8 py-8 lg:py-10 bg-lightGray">
                     <Outlet />
                 </div>
             </main>

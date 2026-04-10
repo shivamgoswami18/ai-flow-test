@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Label, ListBox, Select, type Key } from '@heroui/react';
 

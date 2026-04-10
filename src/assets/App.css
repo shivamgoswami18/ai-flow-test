@@ -29,6 +29,21 @@ body,
     display: none;
 }
 
+@keyframes tab-panel-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-panel-enter {
+    animation: tab-panel-in 0.3s ease-out both;
+}
+
 .base-tabs {
     display: flex;
     width: 100%;
@@ -36,4 +51,11 @@ body,
 .base-tabs__tab {
     flex: 1;
     min-width: 0;
+}
+.base-tabs--inline {
+    width: auto;
+}
+.base-tabs--inline .base-tabs__tab {
+    flex: none;
+    min-width: unset;
 }

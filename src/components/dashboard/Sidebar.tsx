@@ -25,6 +25,7 @@ const navItems: NavItem[] = [
 
 const settingsSubNav = [
     { label: 'Users', to: localizedPath('settingsUsers') },
+    { label: 'Roles', to: localizedPath('settingsRoles') },
     { label: 'Categories', to: localizedPath('settingsCategories') },
     { label: 'Statuses', to: localizedPath('settingsStatuses') },
 ] as const;
@@ -98,7 +99,7 @@ export default function Sidebar({
                 type="button"
                 onClick={onClose}
                 className={[
-                    'fixed inset-0 z-30 bg-black/30 md:hidden',
+                    'fixed inset-0 z-30 bg-black/30 lg:hidden',
                     isOpen ? 'block' : 'hidden',
                 ].join(' ')}
             />
@@ -116,11 +117,11 @@ export default function Sidebar({
 
             <aside
                 className={[
-                    isCollapsed ? 'md:w-20' : 'md:w-56',
+                    isCollapsed ? 'lg:w-20' : 'lg:w-56',
                     'w-56 border-r border-softGray/60 bg-white flex flex-col shrink-0 fixed h-full z-40',
                     'min-h-0',
-                    'transition-transform md:transition-[width] duration-300 ease-out',
-                    'md:translate-x-0',
+                    'transition-transform lg:transition-[width] duration-300 ease-out',
+                    'lg:translate-x-0',
                     isOpen ? 'translate-x-0' : '-translate-x-full',
                 ].join(' ')}
             >
@@ -156,7 +157,7 @@ export default function Sidebar({
                             type="button"
                             onClick={onToggleCollapse}
                             className={[
-                                'hidden bg-none md:inline-flex items-center justify-center text-slateGray shrink-0 transition-all duration-300 cursor-pointer',
+                                'hidden bg-none lg:inline-flex items-center justify-center text-slateGray shrink-0 transition-all duration-300 cursor-pointer',
                                 isCollapsed
                                     ? 'opacity-0 scale-0 pointer-events-none w-0'
                                     : 'opacity-100 scale-100',
@@ -217,7 +218,7 @@ export default function Sidebar({
                                         {item.label === 'Settings' && isSettingsActive && (
                                             <div
                                                 className={[
-                                                    'md:hidden mt-2 ml-2 pl-3 border-l border-softGray/60 space-y-1',
+                                                    'lg:hidden mt-2 ml-2 pl-3 border-l border-softGray/60 space-y-1',
                                                     isCollapsed ? 'hidden' : '',
                                                 ].join(' ')}
                                             >
@@ -250,7 +251,7 @@ export default function Sidebar({
                                         )}
 
                                         {isCollapsed && (
-                                            <div className="hidden md:block pointer-events-none absolute left-full top-1/2 -translate-y-1/2 pl-2 opacity-0 group-hover:opacity-100 transition-opacity z-100">
+                                            <div className="hidden lg:block pointer-events-none absolute left-full top-1/2 -translate-y-1/2 pl-2 opacity-0 group-hover:opacity-100 transition-opacity z-100">
                                                 <div className="bg-slateGray text-white text-xs font-medium px-2 py-1 rounded shadow whitespace-nowrap">
                                                     {item.label}
                                                 </div>
@@ -298,7 +299,7 @@ export default function Sidebar({
                                     </button>
 
                                     {isCollapsed && (
-                                        <div className="hidden md:block pointer-events-none absolute left-full top-1/2 -translate-y-1/2 pl-2 opacity-0 group-hover:opacity-100 transition-opacity z-100">
+                                        <div className="hidden lg:block pointer-events-none absolute left-full top-1/2 -translate-y-1/2 pl-2 opacity-0 group-hover:opacity-100 transition-opacity z-100">
                                             <div className="bg-slateGray text-white text-xs font-medium px-2 py-1 rounded shadow whitespace-nowrap">
                                                 {item.label}
                                             </div>
@@ -367,7 +368,7 @@ export default function Sidebar({
             {/* Desktop nested settings panel (right side) */}
             <aside
                 className={[
-                    'hidden md:flex flex-col fixed top-0 h-full bg-white border-r border-softGray/60 z-20 w-56 overflow-x-hidden',
+                    'hidden lg:flex flex-col fixed top-0 h-full bg-white border-r border-softGray/60 z-20 w-56 overflow-x-hidden',
                     'min-h-0',
                     'transition-all duration-300 ease-out',
                     isCollapsed ? 'left-20' : 'left-56',

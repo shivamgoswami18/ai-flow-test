@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { IconPlus, IconPencil, IconTrash, IconUserPlus } from '@tabler/icons-react';
+import { IconPlus, IconPencil, IconTrash } from '@tabler/icons-react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import {
@@ -187,9 +187,6 @@ const UsersPage = () => {
                                                 {user?.lastLogin}
                                             </span>
                                         </div>
-                                        <button className="text-primary text-[11px] font-bold hover:text-indigo-700 transition-colors whitespace-nowrap px-0 underline underline-offset-4 decoration-primary/20 cursor-pointer">
-                                            {t('userManagement.viewDetails')}
-                                        </button>
                                     </div>
                                     <div className="flex items-center justify-between md:justify-end gap-6 pt-4 md:pt-0 border-t md:border-t-0 border-slate-100 flex-1 md:flex-initial">
                                         <div className="flex flex-col items-start md:items-end gap-1.5">
@@ -206,13 +203,13 @@ const UsersPage = () => {
 
                                         <div className="flex items-center gap-1 pl-6 border-l border-slate-100">
                                             <BaseButton
-                                                className="text-slate-400 hover:text-primary p-2.5 rounded-xl hover:bg-primary/5 cursor-pointer min-w-0 h-auto bg-transparent border-none shadow-none transition-colors"
+                                                className="text-slate-400 hover:text-primary p-2.5 rounded-[8px] hover:bg-primary/5 cursor-pointer min-w-0 h-auto bg-transparent border-none shadow-none transition-colors"
                                                 onClick={() => handleEditOpen(user)}
                                             >
                                                 <IconPencil />
                                             </BaseButton>
                                             <BaseButton
-                                                className="text-slate-400 hover:text-red-500 p-2.5 rounded-xl hover:bg-red-50 cursor-pointer min-w-0 h-auto bg-transparent border-none shadow-none transition-colors"
+                                                className="text-slate-400 hover:text-red-500 p-2.5 rounded-[8px] hover:bg-red-50 cursor-pointer min-w-0 h-auto bg-transparent border-none shadow-none transition-colors"
                                                 onClick={() => handleDeleteOpen(user)}
                                             >
                                                 <IconTrash />
@@ -222,20 +219,6 @@ const UsersPage = () => {
                                 </div>
                             </div>
                         ))}
-
-                        <div
-                            className="border-2 border-dashed border-slate-200 rounded-2xl flex items-center justify-center p-10 bg-slate-50/30 hover:bg-white hover:border-primary/40 hover:border-solid transition-all duration-300 cursor-pointer group w-full"
-                            onClick={handleInviteOpen}
-                        >
-                            <div className="flex flex-col items-center gap-4">
-                                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 shadow-sm group-hover:shadow-md group-hover:shadow-primary/20">
-                                    <IconUserPlus className="text-slate-400 group-hover:text-white transition-colors" />
-                                </div>
-                                <span className="text-sm font-bold text-slate-500 group-hover:text-primary transition-colors">
-                                    {t('userManagement.addAnotherUser')}
-                                </span>
-                            </div>
-                        </div>
                     </>
                 )}
             </div>
@@ -290,7 +273,7 @@ const UsersPage = () => {
                         classNames={{
                             base: 'w-full',
                             label: 'block text-[10px] font-bold text-gray-500 tracking-wider uppercase mb-1',
-                            input: 'w-full text-gray-900 placeholder:text-gray-400 font-medium text-[13px] outline-none border border-slate-200 shadow-none focus:outline-none h-[43px] rounded-lg',
+                            input: 'w-full text-gray-900 placeholder:text-gray-400 font-medium text-small outline-none border border-slate-200 shadow-none focus:outline-none h-[43px] rounded-lg',
                             errorMessage: 'text-red-600 text-[10px] mt-1',
                         }}
                     />
@@ -308,7 +291,7 @@ const UsersPage = () => {
                         classNames={{
                             base: 'w-full',
                             label: 'block text-[10px] font-bold text-gray-500 tracking-wider uppercase mb-1',
-                            input: 'w-full text-gray-900 placeholder:text-gray-400 font-medium text-[13px] outline-none border border-slate-200 shadow-none focus:outline-none h-[43px] rounded-lg',
+                            input: 'w-full text-gray-900 placeholder:text-gray-400 font-medium text-small outline-none border border-slate-200 shadow-none focus:outline-none h-[43px] rounded-lg',
                             errorMessage: 'text-red-600 text-[10px] mt-1',
                         }}
                     />
@@ -327,7 +310,7 @@ const UsersPage = () => {
                         classNames={{
                             base: 'w-full',
                             label: 'block text-[10px] font-bold text-gray-500 tracking-wider uppercase mb-1',
-                            input: 'w-full text-gray-900 placeholder:text-gray-400 font-medium text-[13px] outline-none border border-slate-200 shadow-none focus:outline-none h-[43px] rounded-lg',
+                            input: 'w-full text-gray-900 placeholder:text-gray-400 font-medium text-small outline-none border border-slate-200 shadow-none focus:outline-none h-[43px] rounded-lg',
                             errorMessage: 'text-red-600 text-[10px] mt-1',
                         }}
                     />
@@ -345,8 +328,8 @@ const UsersPage = () => {
                         touched={formik.touched.role}
                         classNames={{
                             trigger:
-                                'w-full bg-white border border-slate-300 rounded-lg py-3 px-4 text-gray-900 font-medium text-[13px] flex items-center justify-between transition-all focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 hover:border-indigo-500 cursor-pointer relative',
-                            value: 'text-gray-900 text-[13px] font-medium',
+                                'w-full bg-white border border-slate-300 rounded-lg py-3 px-4 text-gray-900 font-medium text-small flex items-center justify-between transition-all focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 hover:border-indigo-500 cursor-pointer relative',
+                            value: 'text-gray-900 text-small font-medium',
                             indicator:
                                 'absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors group-hover:text-indigo-500 pointer-events-none',
                             popover: 'mt-1 bg-white border border-slate-200 rounded-lg shadow-lg',

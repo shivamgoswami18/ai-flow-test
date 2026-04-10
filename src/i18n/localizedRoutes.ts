@@ -1,14 +1,16 @@
 import i18n from './i18n';
 
 export const ROUTE_KEYS = [
-    'SignIn',
-    'SignUp',
-    'ForgotPassword',
+    'signIn',
+    'signUp',
+    'forgotPassword',
     'dashboard',
     'settings',
     'settingsUsers',
+    'settingsRoles',
     'settingsCategories',
     'settingsStatuses',
+    'organization',
 ] as const;
 
 export type RouteKey = (typeof ROUTE_KEYS)[number];

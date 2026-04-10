@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useEffect, useRef, useState } from 'react';
 import { Modal } from '@heroui/react';
 import BaseInput from './BaseInput';

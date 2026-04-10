@@ -11,7 +11,7 @@ type ProtectedRouteProps = {
 
 const ProtectedRoute = ({
     isAllowed,
-    redirectPath = localizedPath('SignIn'),
+    redirectPath = localizedPath('signIn'),
     children,
 }: ProtectedRouteProps) => {
     const authToken = sessionStorage.getItem(commonConstants.authToken);

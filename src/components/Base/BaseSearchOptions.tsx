@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { FieldError, Input, InputGroup, Label, TextField } from '@heroui/react';
 import { IconArrowRight, IconLoader2, IconSearch, IconX } from '@tabler/icons-react';

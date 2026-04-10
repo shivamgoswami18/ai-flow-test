@@ -5,7 +5,9 @@
         "cancel": "Avbryt",
         "update": "Oppdater",
         "delete": "Slett",
-        "invite": "Inviter"
+        "invite": "Inviter",
+        "noResultsFound": "Ingen resultater funnet",
+        "create": "Opprett"
     },
     "staticValidation": {
         "required": "Dette feltet er obligatorisk.",
@@ -51,14 +53,16 @@
         "flowlyt": "Flowlyt"
     },
     "routes": {
-        "SignIn": "/logge-pa",
-        "SignUp": "/registrer-deg",
-        "ForgotPassword": "/glemt-passord",
+        "signIn": "/logge-pa",
+        "signUp": "/registrer-deg",
+        "forgotPassword": "/glemt-passord",
         "dashboard": "/dashbord",
         "settings": "/innstillinger",
         "settingsUsers": "/innstillinger/brukere",
+        "settingsRoles": "/innstillinger/roller",
         "settingsCategories": "/innstillinger/kategorier",
-        "settingsStatuses": "/innstillinger/statuser"
+        "settingsStatuses": "/innstillinger/statuser",
+        "organization": "/organisasjon"
     },
     "sidebar": {
         "questionsVisitOur": "Spørsmål? Besøk vårt",
@@ -68,6 +72,48 @@
         "notifications": "Varsler",
         "unread": "Ulest",
         "history": "Historikk"
+    },
+    "rolesAndPermissions": {
+        "title": "Roller & Rettigheter",
+        "description": "Definer detaljerte rettigheter for hver rolle. Disse innstillingene påvirker alle brukere tildelt denne rollen i plattformen.",
+        "roles": "Roller",
+        "createNewRole": "Opprett ny rolle",
+        "membersAssigned": "{{count}} medlemmer tildelt",
+        "fullSystemAccess": "Full systemtilgang",
+        "permissionsSelected": "{{count}} valgt",
+        "permissionsActive": "{{count}} rettigheter aktive",
+        "lastEdited": "Sist endret:",
+        "revertChanges": "Angre endringer",
+        "finalizeRoleSettings": "Fullfør rolleinnstillinger",
+        "editRole": "Rediger rolle",
+        "deleteRole": "Slett rolle",
+        "sections": {
+            "contract": "Kontrakt",
+            "contractDesc": "Global kontraktsbehandling og juridisk gjennomgang",
+            "conversation": "Samtale",
+            "conversationDesc": "Administrer samtaletiltak og kommunikasjonsflyt",
+            "conversationMsgs": "Samtalemeldinger",
+            "conversationMsgsDesc": "Detaljert kontroll over handlinger per individuelle melding"
+        },
+        "permissions": {
+            "viewContracts": "Vis kontrakter",
+            "createContracts": "Opprett nye kontrakter",
+            "deleteContracts": "Slett kontrakter",
+            "modifyContractFields": "Endre kontraktsfelter",
+            "initiateConversations": "Start samtaler",
+            "archiveThreads": "Arkiver tråder",
+            "manageParticipants": "Administrer deltakere",
+            "exportChatLogs": "Eksporter samtalelogger",
+            "sendMessages": "Send meldinger",
+            "editOwnMessages": "Rediger egne meldinger",
+            "deleteAnyMessage": "Slett hvilken som helst melding",
+            "reactToMessages": "Reager på meldinger",
+            "flagMessages": "Flagg meldinger",
+            "translateMessages": "Oversett meldinger"
+        },
+        "roleName": "Rollenavn",
+        "assignedUsers": "Tildelte brukere",
+        "deleteRoleDescription": "Er du sikker på at du vil slette denne rollen?"
     },
     "category": {
         "addCategory": "Legg til kategori",
@@ -87,5 +133,69 @@
         "addNewStatus": "Legg til ny status",
         "deleteStatus": "Slett status",
         "deleteConfirmMessage": "Er du sikker på at du vil slette denne statusen?"
+    },
+    "organizationOnboarding": {
+        "tabs": {
+            "organization": "Organisasjon",
+            "gettingStarted": "Kom i gang"
+        },
+        "welcomeTitle": "Velkommen til AIFlow,",
+        "introDescription": "Administrer organisasjonsdetaljer og operative innstillinger. Disse innstillingene gjelder for hele teamets arbeidsområde.",
+        "discard": "Forkast",
+        "saveChanges": "Lagre endringer",
+        "saved": "Lagret!",
+        "imageAlt": "Organisasjon",
+        "testimonial": {
+            "quote": "\"Jeg sparer mye tid på å administrere alle organisasjonsstandarder her. Automatisk fylkegjenkjenning er en game changer for rapporteringen vår.\"",
+            "authorName": "Markus Söderberg",
+            "authorRole": "Operasjonsdirektør, Nordic Tech"
+        },
+        "fields": {
+            "companyName": "Firmanavn",
+            "organizationNumber": "Organisasjonsnummer",
+            "streetAddress": "Gateadresse",
+            "zipCode": "Postnummer",
+            "city": "Sted",
+            "county": "Fylke",
+            "municipality": "Kommune",
+            "country": "Land"
+        },
+        "gettingStarted": {
+            "successEyebrow": "Fullført",
+            "title": "Det var det!",
+            "intro": "Arbeidsområdet ditt er klart. Du har koblet til kjernesystemene og konfigurert AIFlow-motoren. Velkommen til fremtiden for automatisert intelligens.",
+            "stats": {
+                "efficiencyGain": {
+                    "label": "Effektivitetsgevinst",
+                    "value": "79%",
+                    "caption": "Forventet forbedring"
+                },
+                "latencyReduction": {
+                    "label": "Lavere latens",
+                    "value": "15%",
+                    "caption": "Optimaliseringsmål"
+                }
+            },
+            "learnCard": {
+                "title": "Lær å bruke AIFlow",
+                "description": "Utforsk den interaktive dokumentasjonen og kom raskt i gang med utvalgte veiledninger.",
+                "imageAlt": "Lær AIFlow"
+            },
+            "contact": {
+                "avatarAlt": "Sarah Jenkins",
+                "name": "Sarah Jenkins",
+                "role": "Leder for kundesuksess",
+                "quote": "\"Vi er glade for å ha deg med. Teamet vårt står klart til å sikre en sømløs Foundry-opplevelse.\"",
+                "phone": "+1 (888) FOUNDRY",
+                "email": "support@foundrylate.com"
+            },
+            "agreement": {
+                "before": "Jeg godtar",
+                "link": "databehandleravtalen",
+                "after": "og erkjenner personvernreglene for behandling av bedriftsdata."
+            },
+            "previous": "Forrige",
+            "letsStart": "La oss starte"
+        }
     }
 }

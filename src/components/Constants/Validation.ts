@@ -48,4 +48,5 @@ export const PincodeRegex = /^[0-9]{4}$/;
 export const OTPRegex = /^\d{6}$/;
 export const LocationKeyRegex = /\{\{(.*?)\}\}/g;
 export const RouteParamRegex = /:([a-zA-Z]+)/g;
+export const SpaceRegex = /\s+/g;
 export const imageFileTypes = ['image/jpeg', 'image/png', 'image/svg+xml'];

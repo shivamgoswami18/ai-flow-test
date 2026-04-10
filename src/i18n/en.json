@@ -5,7 +5,9 @@
         "cancel": "Cancel",
         "update": "Update",
         "delete": "Delete",
-        "invite": "Invite"
+        "invite": "Invite",
+        "noResultsFound": "No results found",
+        "create": "Create"
     },
     "staticValidation": {
         "required": "This field is required.",
@@ -51,14 +53,16 @@
         "flowlyt": "Flowlyt"
     },
     "routes": {
-        "SignIn": "/signin",
-        "SignUp": "/signup",
-        "ForgotPassword": "/forgot-password",
+        "signIn": "/signin",
+        "signUp": "/signup",
+        "forgotPassword": "/forgot-password",
         "dashboard": "/dashboard",
         "settings": "/settings",
         "settingsUsers": "/settings/users",
+        "settingsRoles": "/settings/roles",
         "settingsCategories": "/settings/categories",
-        "settingsStatuses": "/settings/statuses"
+        "settingsStatuses": "/settings/statuses",
+        "organization": "/organization"
     },
     "sidebar": {
         "questionsVisitOur": "Questions? Visit our",
@@ -68,6 +72,40 @@
         "notifications": "Notifications",
         "unread": "Unread",
         "history": "History"
+    },
+    "rolesAndPermissions": {
+        "title": "Roles & Permissions",
+        "description": "Define granular permissions for each role. These settings affect all users assigned to this role across the platform.",
+        "roles": "Roles",
+        "createNewRole": "Create New Role",
+        "membersAssigned": "{{count}} members assigned",
+        "fullSystemAccess": "Full System Access",
+        "permissionsSelected": "{{count}} selected",
+        "permissionsActive": "{{count}} Permissions Active",
+        "lastEdited": "Last edited:",
+        "revertChanges": "Revert Changes",
+        "finalizeRoleSettings": "Finalize Role Settings",
+        "editRole": "Edit Role",
+        "deleteRole": "Delete Role",
+        "permissions": {
+            "viewContracts": "View contracts",
+            "createContracts": "Create new contracts",
+            "deleteContracts": "Delete contracts",
+            "modifyContractFields": "Modify contract fields",
+            "initiateConversations": "Initiate conversations",
+            "archiveThreads": "Archive threads",
+            "manageParticipants": "Manage participants",
+            "exportChatLogs": "Export chat logs",
+            "sendMessages": "Send messages",
+            "editOwnMessages": "Edit own messages",
+            "deleteAnyMessage": "Delete any message",
+            "reactToMessages": "React to messages",
+            "flagMessages": "Flag messages",
+            "translateMessages": "Translate messages"
+        },
+        "roleName": "Role name",
+        "assignedUsers": "Assigned users",
+        "deleteRoleDescription": "Are you sure you want to delete this role?"
     },
     "category": {
         "addCategory": "Add category",
@@ -87,5 +125,69 @@
         "addNewStatus": "Add new status",
         "deleteStatus": "Delete Status",
         "deleteConfirmMessage": "Are you sure you want to delete this status?"
+    },
+    "organizationOnboarding": {
+        "tabs": {
+            "organization": "Organization",
+            "gettingStarted": "Getting started"
+        },
+        "welcomeTitle": "Welcome to AIFlow,",
+        "introDescription": "Manage your organization details and operational preferences. These settings reflect across your entire team workspace.",
+        "discard": "Discard",
+        "saveChanges": "Save changes",
+        "saved": "Saved!",
+        "imageAlt": "Organization",
+        "testimonial": {
+            "quote": "\"I save a lot of time by managing all organization defaults here. The automated county detection is a game changer for our reporting.\"",
+            "authorName": "Markus Söderberg",
+            "authorRole": "Ops Director, Nordic Tech"
+        },
+        "fields": {
+            "companyName": "Company name",
+            "organizationNumber": "Organization number",
+            "streetAddress": "Street address",
+            "zipCode": "Zip code",
+            "city": "City",
+            "county": "County",
+            "municipality": "Municipality",
+            "country": "Country"
+        },
+        "gettingStarted": {
+            "successEyebrow": "Success",
+            "title": "That's it!",
+            "intro": "Your workspace is ready. You've successfully integrated your core systems and configured the AIFlow engine. Welcome to the future of automated intelligence.",
+            "stats": {
+                "efficiencyGain": {
+                    "label": "Efficiency gain",
+                    "value": "79%",
+                    "caption": "Predicted improvement"
+                },
+                "latencyReduction": {
+                    "label": "Latency reduction",
+                    "value": "15%",
+                    "caption": "Optimization target"
+                }
+            },
+            "learnCard": {
+                "title": "Learn how to use AIFlow",
+                "description": "Explore our interactive documentation and jumpstart your productivity with curated tutorials.",
+                "imageAlt": "Learn AIFlow"
+            },
+            "contact": {
+                "avatarAlt": "Sarah Jenkins",
+                "name": "Sarah Jenkins",
+                "role": "Head of Customer Success",
+                "quote": "\"We're thrilled to have you onboard. Our team is standing by to ensure your Foundry experience is seamless.\"",
+                "phone": "+1 (888) FOUNDRY",
+                "email": "support@foundrylate.com"
+            },
+            "agreement": {
+                "before": "I accept the",
+                "link": "data processor agreement",
+                "after": "and acknowledge the privacy policy regarding enterprise data handling."
+            },
+            "previous": "Previous",
+            "letsStart": "Let's start"
+        }
     }
 }
